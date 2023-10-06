@@ -4,6 +4,7 @@ import Product from '../components/Product'
 import Search from "../components/Search";
 import Pricing from "../components/Pricing";
 import FAQ from "../components/FAQ";
+import APiDATa from "../DATA/ApiData";
 // import FilterForm from "../components/FilterForm";
 
 const Home = () => {
@@ -25,12 +26,13 @@ const Home = () => {
   async function fetchProductData() {
     setLoading(true);
     try {
-      const { data } = await axios?.get(API_URL);//optional chaining
+      // const { data } = await axios?.get(API_URL);//optional chaining
+      const data = APiDATa;
       console.log(data);
       let temp = [];
       let price = 0;
       data.forEach((obj) => {
-        let category = obj.category;
+        let category = obj?.category;
         price = Math.max(price, Number((obj.price).split(" ").at(0)));
         !temp.includes(category) && temp.push(category);
       })
@@ -78,7 +80,7 @@ const Home = () => {
                 //shimmer
                 <div className="flex flex-wrap min-w-full max-w-4xl mt-6 gap-4 justify-end">
                   {
-                    [1, 1, 1, 1, 1, 1, 1, 1, 1,].map((value, index) => (
+                    [1, 1, 1, 1, 1, 1, 1, 1, 1].map((value, index) => (
                       <div key={index} className="bg-white p-2 sm:p-4 sm:h-64 rounded-2xl shadow-lg flex flex-col sm:flex-row gap-5 select-none ">
                         <div className="flex flex-col flex-1 gap-5 sm:p-2">
                           <div className="flex flex-1 flex-col gap-3">

@@ -12,7 +12,7 @@ import Page404 from "./pages/page404";
 import PrivateRoute from "./components/PrivateRoute";
 import Contact from "./pages/Contact";
 import AboutPage from "./pages/AboutPage";
-  
+
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [Name, setName] = useState("Guest");
@@ -30,7 +30,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart isLoggedIn={isLoggedIn} totalAmount={totalAmount} setTotalAmount={setTotalAmount} />} />
         <Route path='/contact' element={<Contact />} />
-        <Route path='/about' element={<AboutPage/>}/>
+        <Route path='/about' element={<AboutPage />} />
         <Route path='/login' element={<LogIn setIsLoggedIn={setIsLoggedIn} />} />
         <Route path='/signup' element={<Signup setIsLoggedIn={setIsLoggedIn} setName={setName} />} />
         <Route path="/checkout" element={
